@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+다음은 이전 페이지와 완전히 동일한 디자인 시스템을 유지하면서, 블로그 페이지에 맞게 콘텐츠만 변경한 HTML입니다.
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블로그 | 상수 핫플 가이드</title>
+    <meta name="description" content="상수역 핫플, 가짜는 가라. 진짜 감각을 가진 이들을 위한 단 하나의 가이드. 블로그에서 상수동의 진짜 이야기를 만나보세요.">
+    <meta name="keywords" content="상수 핫플, 상수동 핫플레이스, 상수역 맛집, 상수 카페, 상수 술집, 연남동, 홍대, 성수, 핫플가이드, 블로그">
+    <meta name="bpaas-design-system" content="editorial-apple">
+    <meta name="bpaas-design-theme" content="kr-noir-gold">
+    <link rel="canonical" href="https://kr-pbn-sr-035.vercel.app/blog">
+    <!-- OG -->
+    <meta property="og:title" content="블로그 | 상수 핫플 가이드">
+    <meta property="og:description" content="상수역 핫플, 가짜는 가라. 진짜 감각을 가진 이들을 위한 단 하나의 가이드. 블로그에서 상수동의 숨은 이야기를 발견하세요.">
+    <meta property="og:image" content="https://kr-pbn-sr-035.vercel.app/og-blog.jpg">
+    <meta property="og:url" content="https://kr-pbn-sr-035.vercel.app/blog">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0a0a0a;
+            color: #f0e6d0;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* --- 헤더 & 네비게이션 --- */
+        header {
+            background-color: #111;
+            border-bottom: 1px solid #2a2a2a;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #d4af37, #f5d78e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #b0a890;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.2s ease;
+        }
+        .nav-links a:hover {
+            color: #f0e6d0;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: #d4af37;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #111;
+            border-bottom: 1px solid #2a2a2a;
+            padding: 20px;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .mobile-menu.active {
+            display: flex;
+        }
+        .mobile-menu a {
+            color: #b0a890;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            border-bottom: 1px solid #222;
+        }
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .mobile-menu {
+                display: none;
+            }
+            .mobile-menu.active {
+                display: flex;
+            }
+        }
+        /* --- 히어로 섹션 --- */
+        .hero-blog {
+            padding: 100px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+            border-bottom: 1px solid #1e1e1e;
+        }
+        .hero-blog h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #f5d78e, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-blog p {
+            font-size: 1.2rem;
+            color: #b0a890;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        .hero-blog .meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            color: #6b6b6b;
+            font-size: 0.9rem;
+        }
+        .hero-blog .meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        /* --- 블로그 본문 --- */
+        .blog-content {
+            padding: 60px 0;
+        }
+        .blog-article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .blog-article h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 40px 0 20px;
+            color: #f0e6d0;
+            border-left: 4px solid #d4af37;
+            padding-left: 20px;
+        }
+        .blog-article h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 30px 0 15px;
+            color: #e0d0b0;
+        }
+        .blog-article p {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            color: #c0b8a0;
+            line-height: 1.8;
+        }
+        .blog-article blockquote {
+            border-left: 4px solid #d4af37;
+            padding: 20px 30px;
+            margin: 30px 0;
+            background: #151515;
+            font-style: italic;
+            color: #d4c8b0;
+            font-size: 1.1rem;
+        }
+        .blog-article blockquote strong {
+            color: #f5d78e;
+        }
+        .blog-article .highlight-box {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        .blog-article .highlight-box h4 {
+            color: #d4af37;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .blog-article .highlight-box p {
+            margin-bottom: 0;
+        }
+        .blog-article ul, .blog-article ol {
+            margin: 20px 0;
+            padding-left: 30px;
+            color: #c0b8a0;
+        }
+        .blog-article li {
+            margin-bottom: 10px;
+        }
+        .blog-article .image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: #1e1e1e;
+            border-radius: 16px;
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a4a4a;
+            font-size: 1rem;
+            border: 1px solid #2a2a2a;
+        }
+        .blog-article .image-placeholder::before {
+            content: "📸 이미지 영역";
+            letter-spacing: 2px;
+        }
+        /* --- 푸터 --- */
+        footer {
+            background: #111;
+            border-top: 1px solid #2a2a2a;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        footer p {
+            color: #6b6b6b;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #b0a890;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        footer a:hover {
+            color: #d4af37;
+        }
+        @media (max-width: 768px) {
+            .hero-blog h1 {
+                font-size: 2.2rem;
+            }
+            .hero-blog p {
+                font-size: 1rem;
+            }
+            .blog-article h2 {
+                font-size: 1.6rem;
+            }
+            footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">상수 핫플 가이드</div>
+            <ul class="nav-links">
+                <li><a href="/">홈</a></li>
+                <li><a href="/about">소개</a></li>
+                <li><a href="/blog">블로그</a></li>
+                <li><a href="/contact">문의</a></li>
+            </ul>
+            <button class="hamburger" aria-label="메뉴 열기" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="/">홈</a>
+                <a href="/about">소개</a>
+                <a href="/blog">블로그</a>
+                <a href="/contact">문의</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-blog">
+            <div class="container">
+                <h1>상수동, 진짜를 찾는 자들의 성역</h1>
+                <p>가짜 감각에 속지 마라. 우리는 상수역 3번 출구에서 5분 거리, 그곳에 숨은 진짜를 발굴한다. 이 동네는 당신이 아는 그 동네가 아니다.</p>
+                <div class="meta">
+                    <span>✍️ by 핫플 헌터</span>
+                    <span>📅 2025.03.21</span>
+                    <span>⏱ 8분 읽기</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-content">
+            <div class="container blog-article">
+                <h2>상수는 끝났다? 헛소리.</h2>
+                <p>몇몇 유행타는 인스타그래머들이 "상수는 이제 끝났다"고 말한다. 그들은 틀렸다. 진짜는 절대 끝나지 않는다. 상수동은 단지 변했을 뿐, 죽지 않았다. 더럽고, 어둡고, 삐딱하게 살아있다. 당신이 찾는 그 감각은 여전히 이 골목에 숨쉬고 있다. 단, 문을 열 줄 아는 사람만이 들어올 수 있다.</p>
+
+                <blockquote>
+                    “여기는 선별된 사람만이 맛볼 수 있는 곳이다. <strong>너는 그중 하나인가?</strong>”
+                </blockquote>
+
+                <h2>진짜를 찾아서: 3곳의 성역</h2>
+                <p>수많은 카페와 바가 생겼다 사라지는 이곳에서, 우리는 단 3곳만을 추천한다. 이유는 간단하다. 나머지는 가짜니까. 아래는 당신이 반드시 방문해야 할 장소들이다. 주소는 알려주지 않는다. 찾는 재미마저 빼앗고 싶지 않다. 힌트는 충분하다.</p>
+
+                <div class="highlight-box">
+                    <h4>🥃 성역 #1: 그을린 목재의 정적</h4>
+                    <p>상수역 3번 출구에서 200m, 골목 안쪽. 문에는 간판이 없다. 초인종을 누르고 기다려라. 안에서 나오는 사람이 문을 열어줄 것이다. 위스키는 50종, 분위기는 100점. 가격은 비싸다. 하지만 진짜는 값싸지 않다.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>☕ 성역 #2: 검은 커피, 하얀 거짓말</h4>
+                    <p>홍대입구역 쪽에서 걸어오면 7분. 빨간 벽돌 건물 2층. 창가 자리는 단 2석. 여기서 파는 크림라떼는 절대 마시지 마라. <strong>블랙만이 답이다.</strong> 원두는 에티오피아 예가체프, 로스팅은 3일 전. 이 맛을 아는가?</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>🍝 성역 #3: 11시 30분의 파스타</h4>
+                    <p>오전 11시 30분, 딱 정오에 문을 연다. 메뉴는 단 하나. '까르보나라'다. 크림도, 베이컨도 아니다. 진짜 계란과 치즈, 그리고 후추. 거기에 도전하는 자만이 맛볼 수 있는 풍미. 줄 서는 게 싫다면 오지 마라. 하지만 후회할 것이다.</p>
+                </div>
+
+                <h2>왜 우리를 믿어야 하는가?</h2>
+                <p>우리는 협찬을 받지 않는다. 우리는 무료 시식 같은 걸 하지 않는다. 우리는 단지 진짜를 찾아 헤매는 사람들이다. 당신이 인터넷에서 본 그 핫플레이스 리스트는 대부분 광고다. 우리의 리스트는 다르다. 직접 발로 뛰고, 직접 맛보고, 직접 느낀 것만을 기록한다. 가짜가 판치는 세상에서, 우리는 당신의 눈과 귀가 되어준다.</p>
+
+                <div class="image-placeholder"></div>
+
+                <h3>상수동, 당신의 태도를 시험하다</h3>
+                <p>이 동네는 예쁘게 포장된 무언가를 원하지 않는다. 날것 그대로의 감각, 거친 질감, 그리고 진정성을 원한다. 만약 당신이 '인스타 감성'만을 쫓는다면, 여기는 당신을 위한 곳이 아니다. 하지만 당신이 진짜 무언가를 갈망한다면 — 사람 냄새나는 공간, 숨은 맛, 그리고 이야기가 있는 장소를 찾는다면 — 상수동은 당신을 기다리고 있다.</p>
+
+                <blockquote>
+                    “가짜는 가라. <strong>진짜만 남아라.</strong>”
+                </blockquote>
+
+                <p>우리의 다음 블로그에서는 상수동의 숨은 바 5곳을 더 공개할 예정이다. 이름도, 주소도 없다. 오직 힌트와 감각만이 당신을 이끌 것이다. 팔로우하고 기다려라. 진짜를 찾는 여정은 이제 시작이다.</p>
+
+                <div class="highlight-box" style="margin-top: 40px;">
+                    <h4>🔥 에디터의 한마디</h4>
+                    <p>이 글을 읽고
+</body>
+</html>

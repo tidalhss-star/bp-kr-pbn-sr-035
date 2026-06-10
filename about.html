@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상수 핫플 가이드 | 진짜 정보</title>
+    <meta name="description" content="상수역 핫플, 가짜는 가라. 진짜 감각을 가진 이들을 위한 단 하나의 가이드. 상수동 맛집, 카페, 술집까지 단 한 곳에. 지금 바로 확인하세요.">
+    <meta name="keywords" content="상수 핫플, 상수동 핫플레이스, 상수역 맛집, 상수 카페, 상수 술집, 연남동, 홍대, 성수, 핫플가이드">
+    <meta name="bpaas-design-system" content="editorial-apple">
+    <meta name="bpaas-design-theme" content="kr-noir-gold">
+    <link rel="canonical" href="https://kr-pbn-sr-035.vercel.app/info">
+    <meta property="og:title" content="상수 핫플 가이드 | 진짜 정보">
+    <meta property="og:description" content="상수역 핫플, 가짜는 가라. 진짜 감각을 가진 이들을 위한 단 하나의 가이드.">
+    <meta property="og:type" content="website">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- 헤더 & 네비게이션 --- */
+        header {
+            background-color: #111;
+            border-bottom: 1px solid #2a2a2a;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #d4a853;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: #d4a853;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: #f5f5f5;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: #111;
+            padding: 20px;
+            border-bottom: 1px solid #2a2a2a;
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: #aaa;
+            text-decoration: none;
+            padding: 12px 0;
+            font-size: 16px;
+            border-bottom: 1px solid #222;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mobile-menu a:hover {
+            color: #d4a853;
+        }
+
+        /* --- 히어로 섹션 --- */
+        .hero {
+            padding: 100px 0 60px;
+            text-align: center;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            color: #f5f5f5;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: #d4a853;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* --- 정보 섹션 --- */
+        .info-section {
+            padding: 80px 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .info-card {
+            background-color: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 40px;
+            transition: border-color 0.3s ease;
+        }
+
+        .info-card:hover {
+            border-color: #d4a853;
+        }
+
+        .info-card h2 {
+            font-size: 22px;
+            color: #d4a853;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .info-card p {
+            color: #aaa;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card ul li {
+            color: #aaa;
+            font-size: 15px;
+            padding: 8px 0;
+            border-bottom: 1px solid #222;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .info-card ul li::before {
+            content: "›";
+            color: #d4a853;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* --- 통계 섹션 --- */
+        .stats-section {
+            padding: 60px 0;
+            border-top: 1px solid #2a2a2a;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #d4a853;
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            color: #888;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- FAQ 섹션 --- */
+        .faq-section {
+            padding: 80px 0;
+        }
+
+        .faq-section h2 {
+            font-size: 32px;
+            color: #f5f5f5;
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: -1px;
+        }
+
+        .faq-item {
+            background-color: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #f5f5f5;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: #d4a853;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 20px;
+            color: #d4a853;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 25px 20px;
+            color: #888;
+            font-size: 15px;
+            line-height: 1.8;
+            display: none;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
+
+        /* --- 푸터 --- */
+        footer {
+            background-color: #111;
+            border-top: 1px solid #2a2a2a;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        /* --- 반응형 --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 15px;
+                padding: 0 20px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .info-card {
+                padding: 25px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .stat-item h3 {
+                font-size: 32px;
+            }
+
+            .faq-section h2 {
+                font-size: 26px;
+            }
+
+            .faq-question {
+                font-size: 14px;
+                padding: 15px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">SANGSU</a>
+            <ul class="nav-links">
+                <li><a href="/">홈</a></li>
+                <li><a href="/info">정보</a></li>
+                <li><a href="/places">장소</a></li>
+                <li><a href="/guide">가이드</a></li>
+                <li><a href="/contact">문의</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="/">홈</a>
+            <a href="/info">정보</a>
+            <a href="/places">장소</a>
+            <a href="/guide">가이드</a>
+            <a href="/contact">문의</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>상수의 <span>진짜</span> 정보</h1>
+                <p>가짜 리뷰, 광고로 도배된 블로그는 이제 그만. 진짜 감각을 가진 당신이 알아야 할 상수의 모든 것. 우리가 직접 발로 뛰고, 직접 경험했다.</p>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h2>왜 상수인가?</h2>
+                        <p>홍대는 이미 망했고, 성수는 너무 상업화됐다. 진짜 감각을 가진 사람들은 이미 상수로 몰리고 있다. 이유가 뭘까?</p>
+                        <p>상수동은 아직 덜 알려진 숨은 맛집과 독립 서점, 감각적인 카페, 그리고 진짜 로컬들이 모이는 공간이 살아있다. 여긴 아직 '핫플'이라는 단어에 찌들지 않았다.</p>
+                        <ul>
+                            <li>홍대와 연남동의 사이, 그 애매함이 바로 매력</li>
+                            <li>대형 프랜차이즈보다 독립 브랜드의 비율이 압도적</li>
+                            <li>아직 인스타그램에 덜 노출된 진짜 맛집의 보고</li>
+                            <li>도보 10분 거리에 카페, 술집, 맛집이 모두 밀집</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h2>가이드의 철칙</h2>
+                        <p>우리는 돈 받고 리뷰 쓰지 않는다. 협찬은 거절한다. 우리의 유일한 기준은 '이게 진짜로 괜찮은가?'다.</p>
+                        <p>이 가이드가 당신에게 시간을 아껴주고, 돈 낭비하는 걸 막아줄 거라고 약속한다. 우리가 별로라고 말한 곳은 진짜 가지 마라. 우리가 추천한 곳은 최소 3번 이상 간 곳이다.</p>
+                        <ul>
+                            <li>100% 자비로 방문한 곳만 리뷰</li>
+                            <li>직접 방문하지 않은 장소는 절대 추천하지 않음</li>
+                            <li>별점 시스템 없음 - 대신 상세한 설명과 진짜 후기</li>
+                            <li>업주와의 어떠한 금전적 관계도 없음</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h2>상수의 계절</h2>
+                        <p>봄, 여름, 가을, 겨울. 상수는 계절마다 완전히 다른 얼굴을 보여준다. 이걸 모르면 반쪽짜리 경험만 하게 된다.</p>
+                        <p>봄에는 벚꽃 길을 따라 걸으며 테라스 카페에서 커피를, 여름에는 골목길 시원한 바람을 맞으며 수제 맥주를, 가을에는 낙엽 밟으며 숨은 맛집을, 겨울에는 따뜻한 브런치 카페에서 시간을 보내라.</p>
+                        <ul>
+                            <li>봄: 테라스 카페 & 벚꽃 명소</li>
+                            <li>여름: 수제 맥주바 & 시원한 파스타 맛집</li>
+                            <li>가을: 브런치 카페 & 로스터리</li>
+                            <li>겨울: 오코노미야키 & 따뜻한 차집</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h2>이런 사람은 오지 마</h2>
+                        <p>솔직히 말해서, 모든 사람이 상수를 즐길 수 있는 건 아니다. 우리는 정직하게 말할 의무가 있다.</p>
+                        <p>체인점만 찾는 사람, 인스타 감성 사진만 찍으려는 사람, '핫플'이라는 말에 현혹되는 사람. 이런 사람들은 그냥 홍대나 가라. 상수는 진짜를 원하는 사람들을 위한 곳이다.</p>
+                        <ul>
+                            <li>대형 프랜차이즈만 찾는 사람</li>
+                            <li>사진만 찍고 음식은 안 먹는 사람</li>
+                            <li>블로그 평점 4.5 이상만 찾는 사람</li>
+                            <li>데이트 코스 짜는 걸 귀찮아하는 사람</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>127</h3>
+                        <p>직접 방문한 장소</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>43</h3>
+                        <p>추천하는 맛집</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>2.5</h3>
+                        <p>평균 방문 횟수</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>0</h3>
+                        <p>협찬 리뷰</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <h2>자주 묻는 질문</h2>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">왜 홍대나 연남동 말고 상수인가요?</div>
+                    <div class="faq-answer">홍대는 이미 관광지화되어 진짜 맛집보다 가짜가 많아요. 연남동은 분위기는 좋지만 가격이 터무니없이 비싸죠. 상수는 그 중간에서 진짜 가성비와 감각을 모두 잡
+</body>
+</html>
