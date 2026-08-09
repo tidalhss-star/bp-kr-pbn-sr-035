@@ -7,329 +7,327 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>블로그 | 상수 핫플 가이드</title>
-    <meta name="description" content="상수역 핫플, 가짜는 가라. 진짜 감각을 가진 이들을 위한 단 하나의 가이드. 블로그에서 상수동의 진짜 이야기를 만나보세요.">
-    <meta name="keywords" content="상수 핫플, 상수동 핫플레이스, 상수역 맛집, 상수 카페, 상수 술집, 연남동, 홍대, 성수, 핫플가이드, 블로그">
-    <meta name="bpaas-design-system" content="editorial-apple">
-    <meta name="bpaas-design-theme" content="kr-noir-gold">
-    <link rel="canonical" href="https://sangsu-restaurant-guide.link-hub.org/blog.html">
-    <!-- OG -->
-    <meta property="og:title" content="블로그 | 상수 핫플 가이드">
-    <meta property="og:description" content="상수역 핫플, 가짜는 가라. 진짜 감각을 가진 이들을 위한 단 하나의 가이드. 블로그에서 상수동의 진짜 이야기를 만나보세요.">
-    <meta property="og:image" content="https://kr-pbn-sr-035.vercel.app/og-blog.jpg">
-    <meta property="og:url" content="https://sangsu-restaurant-guide.link-hub.org/blog.html">
-    <meta name="twitter:card" content="summary">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0a0a0a;
-            color: #f0e6d0;
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        /* --- 헤더 & 네비게이션 --- */
-        header {
-            background-color: #111;
-            border-bottom: 1px solid #2a2a2a;
-            padding: 16px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #d4af37, #f5d78e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-        .nav-links a {
-            color: #b0a890;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-            position: relative;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #d4af37;
-            transition: width 0.2s ease;
-        }
-        .nav-links a:hover {
-            color: #f0e6d0;
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-            background: none;
-            border: none;
-            padding: 4px;
-        }
-        .hamburger span {
-            display: block;
-            width: 28px;
-            height: 2px;
-            background: #d4af37;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-        .mobile-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: #111;
-            border-bottom: 1px solid #2a2a2a;
-            padding: 20px;
-            flex-direction: column;
-            gap: 16px;
-        }
-        .mobile-menu.active {
-            display: flex;
-        }
-        .mobile-menu a {
-            color: #b0a890;
-            text-decoration: none;
-            font-size: 1.1rem;
-            padding: 8px 0;
-            border-bottom: 1px solid #222;
-        }
-        .mobile-menu a:last-child {
-            border-bottom: none;
-        }
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .mobile-menu {
-                display: none;
-            }
-            .mobile-menu.active {
-                display: flex;
-            }
-        }
-        /* --- 히어로 섹션 --- */
-        .hero-blog {
-            padding: 100px 0 60px;
-            text-align: center;
-            background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
-            border-bottom: 1px solid #1e1e1e;
-        }
-        .hero-blog h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #f5d78e, #d4af37);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero-blog p {
-            font-size: 1.2rem;
-            color: #b0a890;
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-        .hero-blog .meta {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            color: #6b6b6b;
-            font-size: 0.9rem;
-        }
-        .hero-blog .meta span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        /* --- 블로그 본문 --- */
-        .blog-content {
-            padding: 60px 0;
-        }
-        .blog-article {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .blog-article h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 40px 0 20px;
-            color: #f0e6d0;
-            border-left: 4px solid #d4af37;
-            padding-left: 20px;
-        }
-        .blog-article h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 30px 0 15px;
-            color: #e0d0b0;
-        }
-        .blog-article p {
-            font-size: 1.05rem;
-            margin-bottom: 20px;
-            color: #c0b8a0;
-            line-height: 1.8;
-        }
-        .blog-article blockquote {
-            border-left: 4px solid #d4af37;
-            padding: 20px 30px;
-            margin: 30px 0;
-            background: #151515;
-            font-style: italic;
-            color: #d4c8b0;
-            font-size: 1.1rem;
-        }
-        .blog-article blockquote strong {
-            color: #f5d78e;
-        }
-        .blog-article .highlight-box {
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            border-radius: 12px;
-            padding: 30px;
-            margin: 30px 0;
-        }
-        .blog-article .highlight-box h4 {
-            color: #d4af37;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        .blog-article .highlight-box p {
-            margin-bottom: 0;
-        }
-        .blog-article ul, .blog-article ol {
-            margin: 20px 0;
-            padding-left: 30px;
-            color: #c0b8a0;
-        }
-        .blog-article li {
-            margin-bottom: 10px;
-        }
-        .blog-article .image-placeholder {
-            width: 100%;
-            height: 400px;
-            background: #1e1e1e;
-            border-radius: 16px;
-            margin: 40px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #4a4a4a;
-            font-size: 1rem;
-            border: 1px solid #2a2a2a;
-        }
-        .blog-article .image-placeholder::before {
-            content: "📸 이미지 영역";
-            letter-spacing: 2px;
-        }
-        /* --- 푸터 --- */
-        footer {
-            background: #111;
-            border-top: 1px solid #2a2a2a;
-            padding: 40px 0;
-            margin-top: 60px;
-        }
-        footer .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        footer p {
-            color: #6b6b6b;
-            font-size: 0.9rem;
-        }
-        footer a {
-            color: #b0a890;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        footer a:hover {
-            color: #d4af37;
-        }
-        @media (max-width: 768px) {
-            .hero-blog h1 {
-                font-size: 2.2rem;
-            }
-            .hero-blog p {
-                font-size: 1rem;
-            }
-            .blog-article h2 {
-                font-size: 1.6rem;
-            }
-            footer .container {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>블로그 | 상수 핫플 가이드</title>
+ <meta name="description" content="상수역 핫플, 가짜는 가라. 진짜 감각을 가진 이들을 위한 단 하나의 가이드. 블로그에서 상수동의 진짜 이야기를 만나보세요.">
+ <meta name="keywords" content="상수 핫플, 상수동 핫플레이스, 상수역 맛집, 상수 카페, 상수 술집, 연남동, 홍대, 성수, 핫플가이드, 블로그">
+ <link rel="canonical" href="https://sangsu-restaurant-guide.link-hub.org/blog.html">
+ <!-- OG -->
+ <meta property="og:title" content="블로그 | 상수 핫플 가이드">
+ <meta property="og:description" content="상수역 핫플, 가짜는 가라. 진짜 감각을 가진 이들을 위한 단 하나의 가이드. 블로그에서 상수동의 진짜 이야기를 만나보세요.">
+ <meta property="og:image" content="https://kr-pbn-sr-035.vercel.app/og-blog.jpg">
+ <meta property="og:url" content="https://sangsu-restaurant-guide.link-hub.org/blog.html">
+ <meta name="twitter:card" content="summary">
+ <style>
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+ body {
+ font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+ background-color: #0a0a0a;
+ color: #f0e6d0;
+ line-height: 1.7;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+ }
+ .container {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 0 20px;
+ }
+ /* --- 헤더 & 네비게이션 --- */
+ header {
+ background-color: #111;
+ border-bottom: 1px solid #2a2a2a;
+ padding: 16px 0;
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+ }
+ nav {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
+ .logo {
+ font-size: 1.5rem;
+ font-weight: 700;
+ letter-spacing: -0.5px;
+ background: linear-gradient(135deg, #d4af37, #f5d78e);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+ }
+ .nav-links {
+ display: flex;
+ gap: 32px;
+ list-style: none;
+ }
+ .nav-links a {
+ color: #b0a890;
+ text-decoration: none;
+ font-size: 0.95rem;
+ font-weight: 500;
+ transition: color 0.2s ease;
+ position: relative;
+ }
+ .nav-links a::after {
+ content: '';
+ position: absolute;
+ bottom: -4px;
+ left: 0;
+ width: 0;
+ height: 2px;
+ background: #d4af37;
+ transition: width 0.2s ease;
+ }
+ .nav-links a:hover {
+ color: #f0e6d0;
+ }
+ .nav-links a:hover::after {
+ width: 100%;
+ }
+ .hamburger {
+ display: none;
+ flex-direction: column;
+ cursor: pointer;
+ gap: 5px;
+ background: none;
+ border: none;
+ padding: 4px;
+ }
+ .hamburger span {
+ display: block;
+ width: 28px;
+ height: 2px;
+ background: #d4af37;
+ border-radius: 2px;
+ transition: all 0.3s ease;
+ }
+ .mobile-menu {
+ display: none;
+ position: absolute;
+ top: 100%;
+ left: 0;
+ width: 100%;
+ background: #111;
+ border-bottom: 1px solid #2a2a2a;
+ padding: 20px;
+ flex-direction: column;
+ gap: 16px;
+ }
+ .mobile-menu.active {
+ display: flex;
+ }
+ .mobile-menu a {
+ color: #b0a890;
+ text-decoration: none;
+ font-size: 1.1rem;
+ padding: 8px 0;
+ border-bottom: 1px solid #222;
+ }
+ .mobile-menu a:last-child {
+ border-bottom: none;
+ }
+ @media (max-width: 768px) {
+ .nav-links {
+ display: none;
+ }
+ .hamburger {
+ display: flex;
+ }
+ .mobile-menu {
+ display: none;
+ }
+ .mobile-menu.active {
+ display: flex;
+ }
+ }
+ /* --- 히어로 섹션 --- */
+ .hero-blog {
+ padding: 100px 0 60px;
+ text-align: center;
+ background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+ border-bottom: 1px solid #1e1e1e;
+ }
+ .hero-blog h1 {
+ font-size: 3.2rem;
+ font-weight: 800;
+ letter-spacing: -1px;
+ margin-bottom: 20px;
+ background: linear-gradient(135deg, #f5d78e, #d4af37);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+ }
+ .hero-blog p {
+ font-size: 1.2rem;
+ color: #b0a890;
+ max-width: 700px;
+ margin: 0 auto 40px;
+ }
+ .hero-blog .meta {
+ display: flex;
+ justify-content: center;
+ gap: 20px;
+ color: #6b6b6b;
+ font-size: 0.9rem;
+ }
+ .hero-blog .meta span {
+ display: flex;
+ align-items: center;
+ gap: 6px;
+ }
+ /* --- 블로그 본문 --- */
+ .blog-content {
+ padding: 60px 0;
+ }
+ .blog-article {
+ max-width: 800px;
+ margin: 0 auto;
+ }
+ .blog-article h2 {
+ font-size: 2rem;
+ font-weight: 700;
+ margin: 40px 0 20px;
+ color: #f0e6d0;
+ border-left: 4px solid #d4af37;
+ padding-left: 20px;
+ }
+ .blog-article h3 {
+ font-size: 1.5rem;
+ font-weight: 600;
+ margin: 30px 0 15px;
+ color: #e0d0b0;
+ }
+ .blog-article p {
+ font-size: 1.05rem;
+ margin-bottom: 20px;
+ color: #c0b8a0;
+ line-height: 1.8;
+ }
+ .blog-article blockquote {
+ border-left: 4px solid #d4af37;
+ padding: 20px 30px;
+ margin: 30px 0;
+ background: #151515;
+ font-style: italic;
+ color: #d4c8b0;
+ font-size: 1.1rem;
+ }
+ .blog-article blockquote strong {
+ color: #f5d78e;
+ }
+ .blog-article .highlight-box {
+ background: #1a1a1a;
+ border: 1px solid #2a2a2a;
+ border-radius: 12px;
+ padding: 30px;
+ margin: 30px 0;
+ }
+ .blog-article .highlight-box h4 {
+ color: #d4af37;
+ font-size: 1.2rem;
+ margin-bottom: 10px;
+ }
+ .blog-article .highlight-box p {
+ margin-bottom: 0;
+ }
+ .blog-article ul, .blog-article ol {
+ margin: 20px 0;
+ padding-left: 30px;
+ color: #c0b8a0;
+ }
+ .blog-article li {
+ margin-bottom: 10px;
+ }
+ .blog-article .image-placeholder {
+ width: 100%;
+ height: 400px;
+ background: #1e1e1e;
+ border-radius: 16px;
+ margin: 40px 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: #4a4a4a;
+ font-size: 1rem;
+ border: 1px solid #2a2a2a;
+ }
+ .blog-article .image-placeholder::before {
+ content: "📸 이미지 영역";
+ letter-spacing: 2px;
+ }
+ /* --- 푸터 --- */
+ footer {
+ background: #111;
+ border-top: 1px solid #2a2a2a;
+ padding: 40px 0;
+ margin-top: 60px;
+ }
+ footer .container {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 20px;
+ }
+ footer p {
+ color: #6b6b6b;
+ font-size: 0.9rem;
+ }
+ footer a {
+ color: #b0a890;
+ text-decoration: none;
+ transition: color 0.2s ease;
+ }
+ footer a:hover {
+ color: #d4af37;
+ }
+ @media (max-width: 768px) {
+ .hero-blog h1 {
+ font-size: 2.2rem;
+ }
+ .hero-blog p {
+ font-size: 1rem;
+ }
+ .blog-article h2 {
+ font-size: 1.6rem;
+ }
+ footer .container {
+ flex-direction: column;
+ text-align: center;
+ }
+ }
+ </style>
   <meta property="og:type" content="website">
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">상수 핫플 가이드</div>
-            <ul class="nav-links">
-                <li><a href="/">홈</a></li>
-                <li><a href="/about">소개</a></li>
-                <li><a href="/blog">블로그</a></li>
-                <li><a href="/contact">문의</a></li>
-            </ul>
-            <button class="hamburger" aria-label="메뉴 열기" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <div class="mobile-menu" id="mobileMenu">
-                <a href="/">홈</a>
-                <a href="/about">소개</a>
-                <a href="/blog">블로그</a>
-                <a href="/contact">문의</a>
-            </div>
-        </nav>
-    </header>
+ <header>
+ <nav class="container">
+ <div class="logo">상수 핫플 가이드</div>
+ <ul class="nav-links">
+ <li><a href="/">홈</a></li>
+ <li><a href="/about">소개</a></li>
+ <li><a href="/blog">블로그</a></li>
+ <li><a href="/contact">문의</a></li>
+ </ul>
+ <button class="hamburger" aria-label="메뉴 열기" onclick="toggleMenu()">
+ <span></span>
+ <span></span>
+ <span></span>
+ </button>
+ <div class="mobile-menu" id="mobileMenu">
+ <a href="/">홈</a>
+ <a href="/about">소개</a>
+ <a href="/blog">블로그</a>
+ <a href="/contact">문의</a>
+ </div>
+ </nav>
+ </header>
 
 <main>
 <div class="container">
